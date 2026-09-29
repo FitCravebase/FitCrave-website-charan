@@ -1,0 +1,317 @@
+.section {
+  background: #fff;
+  overflow: hidden;
+  overflow: clip;
+}
+
+.wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+  margin-bottom: clamp(32px, 5vw, 56px);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.cityCard {
+  position: relative;
+  min-height: 540px;
+  border-radius: 32px;
+  overflow: hidden;
+  isolation: isolate;
+  color: #fff;
+  background: #111;
+}
+
+.cityBg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  will-change: transform;
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+}
+
+.cityShade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 50% 45%, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6) 70%);
+}
+
+.radar {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  width: min(360px, 80%);
+  transform: translate(-50%, -50%);
+  overflow: visible;
+}
+
+.wave {
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 2;
+  transform-origin: 150px 150px;
+  animation: wave 2.8s var(--settle) infinite;
+}
+
+.wave2 {
+  animation-delay: 1.4s;
+}
+
+@keyframes wave {
+  from {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.core {
+  fill: var(--red);
+  stroke: #fff;
+  stroke-width: 3;
+}
+
+.radarIn .wave {
+  stroke: #9ee6b8;
+  animation-duration: 1.4s;
+}
+
+.radarIn .core {
+  fill: var(--leaf);
+}
+
+.pins {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 70px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.pin {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 160ms var(--settle), transform 200ms var(--pop);
+}
+
+.pin:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.pinOn {
+  background: #fff;
+  color: var(--ink);
+}
+
+.zone {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 24px;
+  margin: 0;
+  text-align: center;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+
+.zone_in {
+  color: #9ee6b8;
+}
+
+.zone_out {
+  color: #ffd27a;
+}
+
+.formCard {
+  padding: clamp(22px, 3vw, 36px);
+  border-radius: 32px;
+  background: var(--bg-warm);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form > .h3 {
+  margin-bottom: 6px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.input {
+  width: 100%;
+  height: 54px;
+  padding: 0 16px;
+  border-radius: 14px;
+  border: 0;
+  background: #fff;
+  box-shadow: inset 0 0 0 1.5px var(--line);
+  font-size: 16px;
+  outline: none;
+  transition: box-shadow 160ms var(--settle);
+}
+
+.input:focus {
+  box-shadow: inset 0 0 0 2px var(--red);
+}
+
+.input::placeholder {
+  color: var(--muted);
+}
+
+.goals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.goal {
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 0;
+  background: #fff;
+  box-shadow: inset 0 0 0 1.5px var(--line);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 200ms var(--pop), background 160ms, color 160ms;
+}
+
+.goal:hover {
+  transform: translateY(-2px);
+}
+
+.goalOn {
+  background: var(--ink);
+  color: #fff;
+  box-shadow: none;
+}
+
+.form .btn {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.form .btn:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.error {
+  margin: 0;
+  color: var(--red-deep);
+  font-size: 14px;
+}
+
+.consent {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.done {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.doneBurst {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--leaf);
+  color: #fff;
+  animation: burst 600ms var(--pop);
+}
+
+@keyframes burst {
+  from {
+    transform: scale(0) rotate(-30deg);
+  }
+  to {
+    transform: scale(1) rotate(0);
+  }
+}
+
+.doneText {
+  margin: 0;
+  color: var(--ink-2);
+}
+
+.store {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .cityCard {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 480px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wave {
+    animation: none;
+    opacity: 0;
+  }
+}

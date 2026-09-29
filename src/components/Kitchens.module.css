@@ -1,0 +1,266 @@
+.section {
+  background: var(--bg-warm);
+  overflow: hidden;
+  overflow: clip;
+}
+
+.wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+  margin-bottom: clamp(32px, 5vw, 56px);
+}
+
+.stage {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.evidence {
+  position: relative;
+  min-height: 520px;
+  border-radius: 32px;
+  box-shadow: 0 40px 80px -40px rgba(28, 28, 28, 0.45);
+  overflow: hidden;
+  isolation: isolate;
+  background: #111;
+}
+
+.clip {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  opacity: 0;
+  transform: scale(1.08);
+  transition: opacity 600ms var(--settle), transform 1.4s var(--settle);
+}
+
+.clipOn {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.shade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 50%);
+}
+
+.evTag {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.caption {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 22px;
+  color: #fff;
+  font-size: clamp(30px, 3.4vw, 48px);
+  animation: rise 520ms var(--settle);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.profile {
+  position: relative;
+  padding: 24px;
+  border-radius: 32px;
+  background: #fff;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.profileHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.profileHead > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.kitchen {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+}
+
+.score {
+  position: relative;
+  flex: none;
+}
+
+.scoreNum {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+}
+
+.passLine {
+  margin: 0;
+  font-size: 15px;
+  color: var(--ink-2);
+}
+
+.passLine b {
+  font-size: 20px;
+  color: var(--leaf);
+}
+
+.groups {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.group {
+  display: grid;
+  grid-template-columns: 1fr 70px 40px;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  margin: 0 -10px;
+  border-radius: 12px;
+  cursor: pointer;
+  outline: none;
+  transition: background 160ms var(--settle);
+}
+
+.group:hover,
+.groupOn,
+.group:focus-visible {
+  background: var(--red-soft);
+}
+
+.groupName {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.bar {
+  height: 6px;
+  border-radius: 6px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.bar i {
+  display: block;
+  height: 100%;
+  border-radius: 6px;
+  background: var(--leaf);
+}
+
+.bar .barWarn {
+  background: var(--gold);
+}
+
+.groupNum {
+  font-size: 15px;
+  text-align: right;
+}
+
+.ops {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.op {
+  display: flex;
+  flex-direction: column;
+}
+
+.opNum {
+  font-size: 24px;
+}
+
+.opNum small {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.opLabel {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.sample {
+  position: absolute;
+  bottom: 10px;
+  right: 18px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.partner {
+  display: block;
+  width: fit-content;
+  margin: 28px auto 0;
+  padding: 14px 22px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  font-size: 16px;
+  transition: transform 180ms var(--pop);
+}
+
+.partner:hover {
+  transform: translateY(-2px);
+}
+
+.partner b {
+  color: var(--red);
+}
+
+@media (max-width: 960px) {
+  .stage {
+    grid-template-columns: 1fr;
+  }
+  .evidence {
+    min-height: 380px;
+  }
+  .ops {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 12px;
+  }
+}

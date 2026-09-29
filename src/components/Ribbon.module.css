@@ -1,0 +1,79 @@
+.ribbon {
+  position: relative;
+  padding: 24px 0 40px;
+  overflow: hidden;
+  overflow: clip;
+  background: #fff;
+}
+
+.row {
+  transform: rotate(-2deg);
+  margin: 0 -40px;
+  padding: 14px 0;
+  background: var(--red);
+}
+
+.rowAlt {
+  transform: rotate(1.5deg);
+  margin-top: -6px;
+  background: var(--ink);
+}
+
+.track {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  animation: slide 60s linear infinite;
+}
+
+.rowAlt .track {
+  animation-direction: reverse;
+  animation-duration: 70s;
+}
+
+.ribbon:hover .track {
+  animation-play-state: paused;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 18px 6px 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  white-space: nowrap;
+}
+
+.pill img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.pill b {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: -0.02em;
+}
+
+.pill em {
+  font-style: normal;
+  font-size: 15px;
+  opacity: 0.75;
+}
+
+@keyframes slide {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+}

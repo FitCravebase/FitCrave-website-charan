@@ -1,0 +1,25 @@
+// Suggested rules for the two collections the website touches. Merge into the project's
+// existing firestore.rules (do not replace the app's rules with this file).
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Waitlist: anyone may add one well-formed entry; nobody can read, list, edit or delete from a browser.
+    match /waitlist/{id} {
+      allow read, update, delete: if false;
+      allow create: if request.resource.data.keys().hasOnly(
+                         ['email', 'name', 'goal', 'pincode', 'city', 'inZone', 'ts', 'source'])
+                    && request.resource.data.email is string
+                    && request.resource.data.email.size() <= 254
+                    && request.resource.data.email.matches('^[^@\s]+@[^@\s]+\.[^@\s]+$')
+                    && (!('name' in request.resource.data) || request.resource.data.name.size() <= 80)
+                    && (!('city' in request.resource.data) || request.resource.data.city.size() <= 80);
+    }
+
+    // Website switches (launch flag, store links, banner): public read, writes only from the console / admin SDK.
+    match /website/config {
+      allow read: if true;
+      allow write: if false;
+    }
+  }
+}

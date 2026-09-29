@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="FitCrave app icon">
+  <title>FitCrave app icon</title>
+  <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&amp;display=swap');</style>
+  <defs>
+    <radialGradient id="g" cx="30%" cy="20%" r="90%">
+      <stop offset="0" stop-color="#1B1D18"/>
+      <stop offset="1" stop-color="#0E0F0D"/>
+    </radialGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="228" fill="url(#g)"/>
+  <circle cx="512" cy="512" r="330" fill="none" stroke="#BFD9A4" stroke-width="30" stroke-linecap="round" stroke-dasharray="1555 518" transform="rotate(135 512 512)"/>
+  <text x="500" y="640" text-anchor="middle" font-family="'Instrument Serif', 'Times New Roman', serif" font-style="italic" font-size="420" letter-spacing="-20" fill="#F3E6C6">Fc</text>
+  <circle cx="760" cy="760" r="48" fill="#F0522E"/>
+</svg>
