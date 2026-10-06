@@ -139,14 +139,14 @@ export default function PrivacyPage() {
         offline from FitCrave Partner. You can disconnect Health Connect or Apple Health, deny camera, location, or
         notification permission, and log out. You may request a copy or correction of personal data, or deletion of your
         account, from Profile → Delete account (consumer), the links in FitCrave Partner, this website, or{" "}
-        <a href="mailto:support@fitcrave.co">support@fitcrave.co</a>. You can report community posts and comments and
+        <a href="mailto:charan@fitcrave.co">charan@fitcrave.co</a>. You can report community posts and comments and
         block users in the app.
       </p>
 
       <h2>6. Children</h2>
       <p>
         FitCrave is not directed at children under 18. We do not knowingly collect personal data from children under 18.
-        If you believe we have, contact <a href="mailto:support@fitcrave.co">support@fitcrave.co</a> and we will delete
+        If you believe we have, contact <a href="mailto:charan@fitcrave.co">charan@fitcrave.co</a> and we will delete
         it.
       </p>
 
@@ -165,7 +165,7 @@ export default function PrivacyPage() {
       <h2>9. Contact</h2>
       <p>
         FitCrave Pvt. Ltd., IIT Kharagpur, West Bengal, India ·{" "}
-        <a href="mailto:support@fitcrave.co">support@fitcrave.co</a> · See also our <Link href="/terms">Terms of Use</Link>.
+        <a href="mailto:charan@fitcrave.co">charan@fitcrave.co</a> · See also our <Link href="/terms">Terms of Use</Link>.
       </p>
     </LegalShell>
   );

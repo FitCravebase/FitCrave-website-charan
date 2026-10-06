@@ -134,7 +134,7 @@ export const WEARABLES = [
 
 export const KONDAPUR_PINCODES = ["500084", "500081", "500032", "500033"];
 
-export const SUPPORT_EMAIL = "support@fitcrave.co";
+export const SUPPORT_EMAIL = "charan@fitcrave.co";
 
 export function formatINR(n: number) {
   return "₹" + n.toLocaleString("en-IN");

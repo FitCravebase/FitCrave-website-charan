@@ -23,7 +23,7 @@ export default function AccountDeletionPage() {
       <h2>How to request deletion</h2>
       <ol>
         <li>
-          Send an email to <a href="mailto:support@fitcrave.co">support@fitcrave.co</a>.
+          Send an email to <a href="mailto:charan@fitcrave.co">charan@fitcrave.co</a>.
         </li>
         <li>
           Use the subject line: <strong>FitCrave account deletion request (consumer)</strong> or{" "}
@@ -87,7 +87,7 @@ export default function AccountDeletionPage() {
       <h2>Questions</h2>
       <p>
         For general privacy practices, see our <Link href="/privacy">Privacy Policy</Link>. For help with your request,
-        email <a href="mailto:support@fitcrave.co">support@fitcrave.co</a>.
+        email <a href="mailto:charan@fitcrave.co">charan@fitcrave.co</a>.
       </p>
     </LegalShell>
   );

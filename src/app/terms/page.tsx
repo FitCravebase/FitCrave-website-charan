@@ -100,7 +100,7 @@ export default function TermsPage() {
 
       <h2>12. Contact</h2>
       <p>
-        Questions: <a href="mailto:support@fitcrave.co">support@fitcrave.co</a> · FitCrave Pvt. Ltd., IIT Kharagpur, West
+        Questions: <a href="mailto:charan@fitcrave.co">charan@fitcrave.co</a> · FitCrave Pvt. Ltd., IIT Kharagpur, West
         Bengal, India.
       </p>
     </LegalShell>
