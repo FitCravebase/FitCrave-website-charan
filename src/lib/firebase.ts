@@ -1,4 +1,5 @@
 import { getApp, getApps, initializeApp, type FirebaseApp } from "firebase/app";
+import { initializeAppCheck, ReCaptchaEnterpriseProvider } from "firebase/app-check";
 import { addDoc, collection, doc, getDoc, getFirestore, type Firestore } from "firebase/firestore";
 
 const config = {
@@ -7,14 +8,23 @@ const config = {
   projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
   storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
+
+// The project enforces App Check on Firestore, so the site proves itself with Fraud Defense (reCAPTCHA Enterprise)
+// (invisible, no puzzle). Both values are public; App Check only switches on when both are set.
+const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
 let db: Firestore | null = null;
 
 function getDb(): Firestore | null {
   if (!config.apiKey || !config.projectId) return null;
   if (db) return db;
-  const app: FirebaseApp = getApps().length ? getApp() : initializeApp(config);
+  const fresh = !getApps().length;
+  const app: FirebaseApp = fresh ? initializeApp(config) : getApp();
+  if (fresh && typeof window !== "undefined" && RECAPTCHA_SITE_KEY && config.appId) {
+    initializeAppCheck(app, { provider: new ReCaptchaEnterpriseProvider(RECAPTCHA_SITE_KEY), isTokenAutoRefreshEnabled: true });
+  }
   db = getFirestore(app);
   return db;
 }
